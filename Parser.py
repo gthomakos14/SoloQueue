@@ -151,7 +151,3 @@ def games_to_sql(master_list, conn):
     df_participants.to_sql('participants', con=conn, if_exists='append')
     df_participants_stats.to_sql('participants_stats', con=conn, if_exists='append', chunksize=1000)
     df_participants_identities.to_sql('participants_identities', con=conn, if_exists='append', chunksize=1000)
-
-
-current_region = 'na1'
-games_to_sql(challenger_games_wrapper(region=current_region), conn=conn_dict[current_region])
