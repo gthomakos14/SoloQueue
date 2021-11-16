@@ -6,7 +6,7 @@ import riotwatcher
 import json
 import sqlite3
 
-api_key = 'READACTED'
+api_key = 'REDACTED'
 
 watcher = riotwatcher.LolWatcher(api_key)
 conn_na = sqlite3.connect('F:/Coding/Data/League Data/soloq_na.db')
