@@ -5,8 +5,9 @@ import pandas as pd
 import riotwatcher
 import json
 import sqlite3
+import os
 
-api_key = 'REDACTED'
+api_key = os.getenv('RIOT_API_KEY')
 
 watcher = riotwatcher.LolWatcher(api_key)
 conn_na = sqlite3.connect('F:/Coding/Data/League Data/soloq_na.db')
@@ -151,3 +152,4 @@ def games_to_sql(master_list, conn):
     df_participants.to_sql('participants', con=conn, if_exists='append')
     df_participants_stats.to_sql('participants_stats', con=conn, if_exists='append', chunksize=1000)
     df_participants_identities.to_sql('participants_identities', con=conn, if_exists='append', chunksize=1000)
+
